@@ -50,7 +50,9 @@ const columns = [
       return (
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
           <Box sx={{ display: 'flex', alignItems: 'flex-start', flexDirection: 'column' }}>
-            <StyledLink href={`/apps/spk/view/${encodedId}`}>{row.spk_id}</StyledLink>
+            <StyledLink href={`/apps/spk/view/${encodedId}`} passHref>
+              {row.spk_id}
+            </StyledLink>
           </Box>
         </Box>
       )
@@ -123,8 +125,8 @@ const columns = [
 
 const SpkListGrid = ({ allSpk }) => {
   const [pageSize, setPageSize] = useState(10)
-  
-return (
+
+  return (
     <>
       <Grid item xs={12}>
         <Card sx={{ '--Card-padding': '15px' }}>

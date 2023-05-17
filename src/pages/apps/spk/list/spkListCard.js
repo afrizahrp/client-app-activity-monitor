@@ -89,7 +89,9 @@ const SpkListCard = ({ allSpk }) => {
                     color={statusColors[spk.status_name]}
                     size='medium'
                     label={
-                      <StyledLink href={`/apps/spk/view/${encodeURIComponent(spk.spk_id)}`}>{spk.spk_id}</StyledLink>
+                      <StyledLink href={`/apps/spk/view/${encodeURIComponent(spk.spk_id)}`} passHref>
+                        {spk.spk_id}
+                      </StyledLink>
                     }
                     sx={{ fontSize: '1.25rem', borderRadius: '4px' }}
                   />
