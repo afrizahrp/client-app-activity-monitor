@@ -1,0 +1,9 @@
+export const GET_SPK_BEGIN = 'GET_SPK_BEGIN'
+
+export const GET_SPK_SUCCESS = 'GET_SPK_SUCCESS'
+
+export const HANDLE_CHANGE = 'HANDLE_CHANGE'
+
+export const CLEAR_FILTERS = 'CLEAR_FILTERS'
+
+export const CLEAR_VALUES = 'CLEAR_VALUES'
