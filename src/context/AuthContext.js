@@ -79,12 +79,21 @@ const AuthProvider = ({ children }) => {
       })
   }
 
-  const handleLogout = () => {
-    setUser(null)
-    window.localStorage.removeItem('userData')
+  const handleLogout = params => {
+    axios.patch(authConfig.logoutEndpoint, params).then(() => {}), setUser(null)
+    localStorage.removeItem('userData')
+    localStorage.removeItem('refreshToken')
+    localStorage.removeItem('accessToken')
     window.localStorage.removeItem(authConfig.storageTokenKeyName)
     router.push('/login')
   }
+
+  // const handleLogout = () => {
+  //   setUser(null)
+  //   window.localStorage.removeItem('userData')
+  //   window.localStorage.removeItem(authConfig.storageTokenKeyName)
+  //   router.push('/login')
+  // }
 
   const values = {
     user,

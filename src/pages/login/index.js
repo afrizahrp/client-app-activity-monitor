@@ -5,10 +5,8 @@ import { useState } from 'react'
 import Link from 'next/link'
 
 // ** MUI Components
-import Alert from '@mui/material/Alert'
 import Button from '@mui/material/Button'
-import Divider from '@mui/material/Divider'
-import Checkbox from '@mui/material/Checkbox'
+
 import TextField from '@mui/material/TextField'
 import InputLabel from '@mui/material/InputLabel'
 import IconButton from '@mui/material/IconButton'
@@ -21,12 +19,7 @@ import FormHelperText from '@mui/material/FormHelperText'
 import InputAdornment from '@mui/material/InputAdornment'
 import Typography from '@mui/material/Typography'
 import MuiFormControlLabel from '@mui/material/FormControlLabel'
-
-// import CardContent from '@mui/material/CardContent'
-
 import MuiCard from '@mui/material/Card'
-
-// ** Icon Imports
 import Icon from 'src/@core/components/icon'
 
 // ** Third Party Imports
@@ -39,14 +32,16 @@ import { useAuth } from 'src/hooks/useAuth'
 import useBgColor from 'src/@core/hooks/useBgColor'
 import { useSettings } from 'src/@core/hooks/useSettings'
 
-// ** Configs
-import themeConfig from 'src/configs/themeConfig'
-
 // ** Layout Import
 import BlankLayout from 'src/@core/layouts/BlankLayout'
 
-// ** Demo Imports
-import FooterIllustrationsV2 from 'src/views/pages/auth/FooterIllustrationsV2'
+import Alert from '@mui/material/Alert'
+import CardContent from '@mui/material/CardContent'
+
+// import Divider from '@mui/material/Divider'
+// import Checkbox from '@mui/material/Checkbox'
+// import themeConfig from 'src/configs/themeConfig'
+// import FooterIllustrationsV2 from 'src/views/pages/auth/FooterIllustrationsV2'
 
 // ** Styled Components
 const LoginIllustrationWrapper = styled(Box)(({ theme }) => ({
@@ -151,19 +146,16 @@ const LoginPage = () => {
     return (
       <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', mt: 0 }}>
         <img src='/images/am-logo.png' alt='logo' width='80' height='80' align='center' />
-        <Box sx={{ ml: 1.5, mt: 0 }}>
-          <Typography variant='subtitle'>Activity Monitoring</Typography>
-        </Box>
       </Box>
     )
   }
 
-  const imageSource = skin === 'bordered' ? 'auth-v2-login-illustration-bordered' : 'auth-v2-login-illustration'
+  // const imageSource = skin === 'bordered' ? 'auth-v2-login-illustration-bordered' : 'auth-v2-login-illustration'
 
   return (
     <Box className='content-center'>
       <Card sx={{ zIndex: 1 }}>
-        <AppBrand />
+        {/* <AppBrand /> */}
 
         {/* {!hidden ? (
           <Box sx={{ flex: 1, display: 'flex', position: 'relative', alignItems: 'center', justifyContent: 'center' }}>
@@ -197,91 +189,18 @@ const LoginPage = () => {
                   alignItems: 'center',
                   justifyContent: 'center'
                 }}
-              >
-                {/* <svg width={47} fill='none' height={26} viewBox='0 0 268 150' xmlns='http://www.w3.org/2000/svg'> */}
-                {/* <rect
-                  rx='25.1443'
-                  width='50.2886'
-                  height='143.953'
-                  fill={theme.palette.primary.main}
-                  transform='matrix(-0.865206 0.501417 0.498585 0.866841 195.571 0)'
-                />
-                <rect
-                  rx='25.1443'
-                  width='50.2886'
-                  height='143.953'
-                  fillOpacity='0.4'
-                  fill='url(#paint0_linear_7821_79167)'
-                  transform='matrix(-0.865206 0.501417 0.498585 0.866841 196.084 0)'
-                />
-                <rect
-                  rx='25.1443'
-                  width='50.2886'
-                  height='143.953'
-                  fill={theme.palette.primary.main}
-                  transform='matrix(0.865206 0.501417 -0.498585 0.866841 173.147 0)'
-                />
-                <rect
-                  rx='25.1443'
-                  width='50.2886'
-                  height='143.953'
-                  fill={theme.palette.primary.main}
-                  transform='matrix(-0.865206 0.501417 0.498585 0.866841 94.1973 0)'
-                />
-                <rect
-                  rx='25.1443'
-                  width='50.2886'
-                  height='143.953'
-                  fillOpacity='0.4'
-                  fill='url(#paint1_linear_7821_79167)'
-                  transform='matrix(-0.865206 0.501417 0.498585 0.866841 94.1973 0)'
-                /> */}
-                {/* <rect
-                  rx='25.1443'
-                  width='50.2886'
-                  height='143.953'
-                  fill={theme.palette.primary.main}
-                  transform='matrix(0.865206 0.501417 -0.498585 0.866841 71.7728 0)'
-                /> */}
-                {/* <defs>
-                  <linearGradient
-                    y1='0'
-                    x1='25.1443'
-                    x2='25.1443'
-                    y2='143.953'
-                    id='paint0_linear_7821_79167'
-                    gradientUnits='userSpaceOnUse'
-                  >
-                    <stop />
-                    <stop offset='1' stopOpacity='0' />
-                  </linearGradient>
-                  <linearGradient
-                    y1='0'
-                    x1='25.1443'
-                    x2='25.1443'
-                    y2='143.953'
-                    id='paint1_linear_7821_79167'
-                    gradientUnits='userSpaceOnUse'
-                  >
-                    <stop />
-                    <stop offset='1' stopOpacity='0' />
-                  </linearGradient>
-                </defs> */}
-                {/* </svg> */}
-                {/* <Typography variant='h6' sx={{ ml: 2, lineHeight: 1, fontWeight: 700, fontSize: '1.5rem !important' }}>
-                {themeConfig.templateName}
-              </Typography> */}
-              </Box>
+              ></Box>
+              <CardContent sx={{ pt: 0, pl: 0, display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
+                <Alert icon={false} sx={{ py: 3, mb: 6, ...bgColors.primaryLight, '& .MuiAlert-message': { p: 0 } }}>
+                  <AppBrand />
+                  <Box sx={{ ml: 0, mt: 0, alignItems: 'center' }}>
+                    <Typography mt={0} variant='title' fontWeight={400} fontSize={20}>
+                      Activity Monitoring
+                    </Typography>
+                  </Box>
+                </Alert>
+              </CardContent>
 
-              <Alert icon={false} sx={{ py: 3, mb: 6, ...bgColors.primaryLight, '& .MuiAlert-message': { p: 0 } }}>
-                <Typography variant='caption' sx={{ mb: 2, display: 'block', color: 'primary.main' }}>
-                  Now you can start to make your business activity more productive, efficiently and profitable in a
-                  single click.
-                </Typography>
-                {/* <Typography variant='caption' sx={{ display: 'block', color: 'primary.main' }}>
-                in a single click
-              </Typography> */}
-              </Alert>
               <form noValidate autoComplete='off' onSubmit={handleSubmit(onSubmit)}>
                 <FormControl fullWidth sx={{ mb: 4 }}>
                   <Controller
@@ -348,10 +267,10 @@ const LoginPage = () => {
                     justifyContent: 'space-between'
                   }}
                 >
-                  <FormControlLabel
+                  {/* <FormControlLabel
                     label='Remember Me'
                     control={<Checkbox checked={rememberMe} onChange={e => setRememberMe(e.target.checked)} />}
-                  />
+                  /> */}
                   {/* <Typography
                     variant='body2'
                     component={Link}
