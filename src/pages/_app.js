@@ -10,7 +10,7 @@ import { CacheProvider } from '@emotion/react'
 
 // ** Config Imports
 
-import { defaultACLObj } from 'src/configs/acl'
+// import { defaultACLObj } from 'src/configs/acl'
 import themeConfig from 'src/configs/themeConfig'
 
 // ** Third Party Import
@@ -18,7 +18,8 @@ import { Toaster } from 'react-hot-toast'
 
 // ** Component Imports
 import UserLayout from 'src/layouts/UserLayout'
-import AclGuard from 'src/@core/components/auth/AclGuard'
+
+// import AclGuard from 'src/@core/components/auth/AclGuard'
 import ThemeComponent from 'src/@core/theme/ThemeComponent'
 import AuthGuard from 'src/@core/components/auth/AuthGuard'
 import GuestGuard from 'src/@core/components/auth/GuestGuard'
@@ -74,7 +75,6 @@ const Guard = ({ children, authGuard, guestGuard }) => {
   } else {
     return <AuthGuard fallback={<Spinner />}>{children}</AuthGuard>
   }
-  console.log('Guard ini adalah ' + children)
 }
 
 // ** Configure JSS & ClassName
@@ -89,7 +89,8 @@ const App = props => {
   const setConfig = Component.setConfig ?? undefined
   const authGuard = Component.authGuard ?? true
   const guestGuard = Component.guestGuard ?? false
-  const aclAbilities = Component.acl ?? defaultACLObj
+
+  // const aclAbilities = Component.acl ?? defaultACLObj
 
   return (
     <CacheProvider value={emotionCache}>
@@ -108,9 +109,11 @@ const App = props => {
                 return (
                   <ThemeComponent settings={settings}>
                     <Guard authGuard={authGuard} guestGuard={guestGuard}>
-                      <AclGuard aclAbilities={aclAbilities} guestGuard={guestGuard} authGuard={authGuard}>
-                        {getLayout(<Component {...pageProps} />)}
-                      </AclGuard>
+                      {/* <AclGuard aclAbilities={aclAbilities} guestGuard={guestGuard}> */}
+                      {/* <AclGuard aclAbilities={aclAbilities} guestGuard={guestGuard} authGuard={authGuard}> */}
+
+                      {getLayout(<Component {...pageProps} />)}
+                      {/* </AclGuard> */}
                     </Guard>
                     <ReactHotToast>
                       <Toaster position={settings.toastPosition} toastOptions={{ className: 'react-hot-toast' }} />

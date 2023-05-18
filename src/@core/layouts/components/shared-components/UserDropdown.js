@@ -41,8 +41,8 @@ const UserDropdown = props => {
 
   const { user, logout } = useAuth()
 
-  const firstChar = user?.name.charAt(0).toUpperCase()
-  const userName = firstChar + user.name.slice(1)
+  const firstChar = user?.name?.charAt(0)?.toUpperCase()
+  const userName = firstChar + (user?.name ? user.name.slice(1) : '')
 
   // ** Vars
   const { direction } = settings

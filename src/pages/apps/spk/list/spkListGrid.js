@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Link from 'next/link'
+import moment from 'moment'
 import { Card, Grid, Box, Typography } from '@mui/material'
 import { DataGrid } from '@mui/x-data-grid'
 import { styled } from '@mui/material/styles'
@@ -22,11 +23,8 @@ const columns = [
     field: 'spkDate',
     headerName: 'Date',
     renderCell: ({ row }) => {
-      const spkDate = new Date(row.spk_date).toLocaleDateString('id', {
-        year: 'numeric',
-        month: 'short',
-        day: 'numeric'
-      })
+      let spkDate = moment(row.spk_date)
+      spkDate = spkDate.format('DD MMM YYYY')
 
       return (
         <Typography noWrap variant='body2'>
@@ -94,11 +92,8 @@ const columns = [
     renderCell: ({ row }) => {
       const now = new Date().getTime()
 
-      const expectedDate = new Date(row.expected_date).toLocaleDateString('id', {
-        year: 'numeric',
-        month: 'short',
-        day: 'numeric'
-      })
+      let expectedDate = moment(row.expected_date)
+      expectedDate = expectedDate.format('DD MMM YYYY')
 
       return (
         <Typography noWrap variant='body2'>

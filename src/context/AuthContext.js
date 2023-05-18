@@ -31,12 +31,16 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const initAuth = async () => {
       const storedToken = window.localStorage.getItem(authConfig.storageTokenKeyName)
+
       if (storedToken) {
         setLoading(true)
         await axios
           .get(authConfig.meEndpoint, {
             headers: {
-              Authorization: storedToken
+              Authorization: `Bearer ${storedToken}`,
+              'Content-Type': 'application/json',
+              Accept: 'application/json',
+              'Access-Control-Allow-Origin': '*'
             }
           })
           .then(async response => {
@@ -87,13 +91,6 @@ const AuthProvider = ({ children }) => {
     window.localStorage.removeItem(authConfig.storageTokenKeyName)
     router.push('/login')
   }
-
-  // const handleLogout = () => {
-  //   setUser(null)
-  //   window.localStorage.removeItem('userData')
-  //   window.localStorage.removeItem(authConfig.storageTokenKeyName)
-  //   router.push('/login')
-  // }
 
   const values = {
     user,
