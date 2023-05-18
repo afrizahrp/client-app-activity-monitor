@@ -3,18 +3,17 @@ import { Card, CardHeader, CardContent, Grid } from '@mui/material'
 import FormRowSelectNew from 'src/utils/FormRowSelectNew'
 import TableHeader from 'src/views/pages/apps/spk/list/TableHeader'
 
+// const SearchContainer = ({ search, searchStatus, searchType }) => {
+//   const spkTypeOptions = ['Regular', 'eCatalog', 'Service', 'Manual']
+
+//   // spkType: 'Regular',
+
+//   const spkStatusOptions = ['Progress', 'Will Expire', 'Expired', 'Canceled', 'Completed']
+
+// status_name: 'Progress',
 const SearchContainer = () => {
-  const {
-    isLoading,
-    search,
-    searchStatus,
-    searchType,
-    sortOptions,
-    handleChange,
-    clearFilters,
-    spkTypeOptions,
-    spkStatusOptions
-  } = useAppContext()
+  const { search, searchStatus, searchType, handleChange, clearFilters, spkTypeOptions, spkStatusOptions } =
+    useAppContext()
 
   const handleSearch = e => {
     handleChange({ name: e.target.name, value: e.target.value })

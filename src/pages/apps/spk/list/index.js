@@ -8,11 +8,11 @@ import SpkListCard from './spkListCard'
 import SearchContainer from './searchContainer'
 
 const SpkContainer = () => {
-  const { getAllSpk, allSpk, page, search, searchStatus, searchType, sort, numOfPages } = useAppContext()
+  const { getAllSpk, allSpk, page, search, searchStatus, searchType, numOfPages } = useAppContext()
 
   useEffect(() => {
     getAllSpk()
-  }, [page, search, searchStatus, searchType, sort])
+  }, [page, search, searchStatus, searchType])
 
   if (isMobile) {
     return (
