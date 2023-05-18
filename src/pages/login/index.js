@@ -37,6 +37,7 @@ import BlankLayout from 'src/@core/layouts/BlankLayout'
 
 import Alert from '@mui/material/Alert'
 import CardContent from '@mui/material/CardContent'
+import FallbackSpinner from 'src/@core/components/spinner'
 
 // import Divider from '@mui/material/Divider'
 // import Checkbox from '@mui/material/Checkbox'
@@ -153,21 +154,8 @@ const LoginPage = () => {
   // const imageSource = skin === 'bordered' ? 'auth-v2-login-illustration-bordered' : 'auth-v2-login-illustration'
 
   return (
-    <Box className='content-center'>
+    <Box className='content-center' sx={{ width: '100' }}>
       <Card sx={{ zIndex: 1 }}>
-        {/* <AppBrand /> */}
-
-        {/* {!hidden ? (
-          <Box sx={{ flex: 1, display: 'flex', position: 'relative', alignItems: 'center', justifyContent: 'center' }}>
-            <LoginIllustrationWrapper>
-              <LoginIllustration
-                alt='login-illustration'
-                src={`/images/pages/${imageSource}-${theme.palette.mode}.png`}
-              />
-            </LoginIllustrationWrapper>
-            <FooterIllustrationsV2 />
-          </Box>
-        ) : null} */}
         <RightWrapper sx={skin === 'bordered' && !hidden ? { borderLeft: `1px solid ${theme.palette.divider}` } : {}}>
           <Box
             sx={{
@@ -191,7 +179,10 @@ const LoginPage = () => {
                 }}
               ></Box>
               <CardContent sx={{ pt: 0, pl: 0, display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
-                <Alert icon={false} sx={{ py: 3, mb: 6, ...bgColors.primaryLight, '& .MuiAlert-message': { p: 0 } }}>
+                <Alert
+                  icon={false}
+                  sx={{ py: 0, mb: 1, ...bgColors.primaryLight, variant: 'filled', '& .MuiAlert-message': { p: 0 } }}
+                >
                   <AppBrand />
                   <Box sx={{ ml: 0, mt: 0, alignItems: 'center' }}>
                     <Typography mt={0} variant='title' fontWeight={400} fontSize={20}>
@@ -215,7 +206,7 @@ const LoginPage = () => {
                         onBlur={onBlur}
                         onChange={onChange}
                         error={Boolean(errors.email)}
-                        placeholder='admin@materialize.com'
+                        placeholder='admin@bipmed.com'
                       />
                     )}
                   />
